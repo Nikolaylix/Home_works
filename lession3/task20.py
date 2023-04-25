@@ -1,27 +1,17 @@
-eng = 'qwertyuiopasdfghjklzxcvbnm'
+word = input('Введите слово: ').upper()
+Eng = {'1':'A, E, I, O, U, L, N, S, T, R',
+       '2':'D, G',
+       '3':'B, C, M, P',
+       '4':'F, H, V, W, Y',
+       '5':'K',
+       '8':'J, X',
+      '10':'Q, Z'}
 
-ru = 'йцукенгшщзхъфывапролджэячсмитьбюё'
+result = 0
+for i in word:
+    for j in Eng.keys():
+        if i in Eng[j]:
+            result += int(j)
+            break
 
-list_Eng = {1:'AEIOULNSTR', 2:'DG', 3:'BCMP',
-                4:'FHVWY', 5:"K" , 8:'JX', 10:'QZ'}
-list_Ru = {1:'АВЕИНОРСТ', 2:'ДКЛМПУ', 3:'БГЁЬЯ',
-                4:'ЙЫ', 5:'ЖЗХЦЧ', 8:'ШЭЮ', 10:'ФШЪ'}
-
-word = input('Введите слово: ')
-
-if word[0].lower() in eng:
-    sum = 0
-    for letter in word:
-        for key, value in list_Eng.items():
-            if letter.upper() in value:
-                sum += key
-    print(sum)
-else:
-    if word[0].lower() in ru:
-        sum = 0
-        for letter in word:
-
-            for key, value in list_Ru.items():
-                if letter.upper() in value:
-                    sum += key
-    print(sum)
+print(result)
